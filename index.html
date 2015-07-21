@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta content='online package.json editor' name='description'>
+    <title>
+        package.json editor online - view、edit and create package.json online
+    </title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/aform.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header>
+    <a href="http://www.package-json-editor.com">Online Package.json Editor</a>
+</header>
+<div class="main">
+    <div id="textAreaWrap" style="flex: 1">
+        <textarea class="form-control" id="txtCodeArea">{
+            name: "@ali/base-fmd-maker",
+            version: "1.1.2",
+            description: "将 commonjs 的代码模块编译成 fmd 形式。",
+            main: "./index.js",
+            repository: {
+            type: "git",
+            url: "git@gitlab.alibaba-inc.com:neat/base-fmd-maker.git"
+            },
+            publishConfig: {
+            registry: "http://registry.npm.alibaba-inc.com"
+            },
+            keywords: [
+            "1688",
+            "commonjs compiler"
+            ],
+            author: {
+            name: "lihao.ylh",
+            email: "lihao.ylh@alibaba-inc.com"
+            },
+            license: "ISC",
+            dependencies: {
+            "@ali/commonjs-compiler": "~0.2.0",
+            "@ali/neat-utils": "~2.1.0",
+            "fs-extra": "~0.18.3",
+            "iconv-lite": "~0.4.4",
+            minimatch: "~2.0.4"
+            },
+            scripts: {
+            test: "mocha tests/**/*.js"
+            }
+            }
+        </textarea>
+        <div id="aceEditor"></div>
+    </div>
+    <div id="splitter">
+        <button class="btn btn-primary" id="btnRender"><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+        <button class="btn btn-primary" id="btnGetJson"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></button>
+    </div>
+    <div id="form"></div>
+</div>
+<footer style="text-align: center">
+    package-json-editor &copy; 2015 all rights reserved
+</footer>
+</body>
+</html>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/aform/aform.js"></script>
+<script src="bower_components/ace/build/src/ace.js"></script>
+<script>
+    AForm.Config.extClassName.basicContainer = "form-group";
+    AForm.Config.extClassName.table = "table table-bordered";
+    AForm.Config.extClassName.control = "form-control";
+    AForm.Config.wording.addRowText = "add";
+
+    var txtCodeArea = $("#txtCodeArea");
+    var editor;
+    var af = new AForm("form", {
+        fields : {
+            description : {type:"textarea"}
+        }
+    });
+
+    function format(){
+        var str = editor.getValue();
+        try {
+            var json = eval("(" + str + ")");
+        } catch (ex) {
+
+        }
+        str = JSON.stringify(json,null,"\t");
+        editor.session.setValue(str);
+    }
+
+    function renderForm() {
+        var str = editor.getValue();
+        try {
+            var json = eval("(" + str + ")");
+        } catch (ex) {
+            alert("invalid package.json");
+            return false;
+        }
+
+        af.render(json);
+        format();
+    }
+
+    function initAce(){
+        txtCodeArea.hide();
+        editor = ace.edit("aceEditor");
+        editor.setTheme("ace/theme/ecllipse");
+        editor.setFontSize(14);
+        editor.getSession().setMode("ace/mode/json");
+        editor.getSession().setValue(txtCodeArea.val());
+        editor.getSession().on('change', function(){
+            txtCodeArea.val(editor.getSession().getValue());
+        });
+    }
+
+    function getJson() {
+        var str = af.getJsonString();
+        editor.setValue(str);
+        format();
+    }
+
+    function initBehavior() {
+        $("#btnRender").click(function() {
+            renderForm();
+        });
+        $("#btnGetJson").click(function() {
+            getJson();
+        });
+    }
+
+    $(function(){
+        initBehavior();
+        initAce();
+        $("#btnRender").click();
+    })
+</script>

@@ -1,0 +1,75 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   'c:\\Users\\huiqi.xhq\\AppData\\Roaming\\npm\\node_modules\\tnpm\\node_modules\\ali-npm\\bin\\npm-cli.js',
+1 verbose cli   '--no-proxy',
+1 verbose cli   '--disturl=http://npm.taobao.org/mirrors/node',
+1 verbose cli   '--userconfig=C:\\Users\\huiqi.xhq\\.tnpmrc',
+1 verbose cli   '--registry=http://registry.npm.alibaba-inc.com',
+1 verbose cli   '--node-gyp=c:\\Users\\huiqi.xhq\\AppData\\Roaming\\npm\\node_modules\\tnpm\\node_modules\\pangyp\\bin\\node-gyp.js',
+1 verbose cli   '--cache=c:\\Users\\huiqi.xhq\\.tmp/tmp.10460.1437396128663',
+1 verbose cli   'install',
+1 verbose cli   'ace' ]
+2 info using npm@2.1.0
+3 info using node@v0.12.2
+4 verbose install initial load of d:\快盘\project\package-json-editor\package.json
+5 verbose readDependencies loading dependencies from d:\快盘\project\package-json-editor\package.json
+6 silly cache add args [ 'ace', null ]
+7 verbose cache add spec ace
+8 silly cache add parsed spec { raw: 'ace',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'ace',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed ace@*
+10 verbose addNamed "*" is a valid semver range for ace
+11 silly addNameRange { name: 'ace', range: '*', hasData: false }
+12 silly mapToRegistry name ace
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry http://registry.npm.alibaba-inc.com/
+15 silly mapToRegistry uri http://registry.npm.alibaba-inc.com/ace
+16 verbose addNameRange registry:http://registry.npm.alibaba-inc.com/ace not in flight; fetching
+17 verbose request uri http://registry.npm.alibaba-inc.com/ace
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 20:42:14
+20 verbose request id 3d4e75f002ce750e
+21 http request GET http://registry.npm.alibaba-inc.com/ace
+22 http 404 http://registry.npm.alibaba-inc.com/ace
+23 verbose headers { server: 'Tengine',
+23 verbose headers   date: 'Mon, 20 Jul 2015 12:42:14 GMT',
+23 verbose headers   'content-type': 'application/json; charset=utf-8',
+23 verbose headers   'transfer-encoding': 'chunked',
+23 verbose headers   connection: 'keep-alive',
+23 verbose headers   'x-readtime': '19',
+23 verbose headers   'content-encoding': 'gzip' }
+24 silly get cb [ 404,
+24 silly get   { server: 'Tengine',
+24 silly get     date: 'Mon, 20 Jul 2015 12:42:14 GMT',
+24 silly get     'content-type': 'application/json; charset=utf-8',
+24 silly get     'transfer-encoding': 'chunked',
+24 silly get     connection: 'keep-alive',
+24 silly get     'x-readtime': '19',
+24 silly get     'content-encoding': 'gzip' } ]
+25 verbose stack Error: 404 Not Found: ace
+25 verbose stack     at CachingRegistryClient.<anonymous> (c:\Users\huiqi.xhq\AppData\Roaming\npm\node_modules\tnpm\node_modules\ali-npm\node_modules\npm-registry-client\lib\request.js:245:14)
+25 verbose stack     at c:\Users\huiqi.xhq\AppData\Roaming\npm\node_modules\tnpm\node_modules\ali-npm\node_modules\npm-registry-client\lib\request.js:176:7
+25 verbose stack     at Gunzip.onEnd (zlib.js:227:5)
+25 verbose stack     at Gunzip.emit (events.js:129:20)
+25 verbose stack     at _stream_readable.js:908:16
+25 verbose stack     at process._tickCallback (node.js:355:11)
+26 verbose statusCode 404
+27 verbose pkgid ace
+28 verbose cwd d:\快盘\project\package-json-editor
+29 error Windows_NT 6.1.7601
+30 error argv "node" "c:\\Users\\huiqi.xhq\\AppData\\Roaming\\npm\\node_modules\\tnpm\\node_modules\\ali-npm\\bin\\npm-cli.js" "--no-proxy" "--disturl=http://npm.taobao.org/mirrors/node" "--userconfig=C:\\Users\\huiqi.xhq\\.tnpmrc" "--registry=http://registry.npm.alibaba-inc.com" "--node-gyp=c:\\Users\\huiqi.xhq\\AppData\\Roaming\\npm\\node_modules\\tnpm\\node_modules\\pangyp\\bin\\node-gyp.js" "--cache=c:\\Users\\huiqi.xhq\\.tmp/tmp.10460.1437396128663" "install" "ace"
+31 error node v0.12.2
+32 error npm  v2.1.0
+33 error code E404
+34 error 404 Not Found: ace
+34 error 404
+34 error 404 'ace' is not in the npm registry.
+34 error 404 You should bug the author to publish it (or use the name yourself!)
+34 error 404
+34 error 404 Note that you can also install from a
+34 error 404 tarball, folder, http url, or git url.
+35 verbose exit [ 1, true ]

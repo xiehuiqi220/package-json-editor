@@ -1,0 +1,22 @@
+.aform td .form-group {
+    margin-bottom: 0;
+}
+.aform td.json-form-rowNumber , .aform td.json-form-actionCell {
+    vertical-align: middle;
+    text-align: center;
+}
+.aform div .json-form-fdset{
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: 1px dotted#e0e0e0;
+}
+/*展开的状态*/
+.aform label.json-form-ctrl-un-collapse{
+    padding-left: 20px;
+    background: url("../bower_components/aform/img/arrow_collapsed.png") no-repeat left center;
+}
+/*折叠的状态*/
+.aform label.json-form-ctrl-collapse{
+    padding-left: 20px;
+    background: url("../bower_components/aform/img/arrow_expanded.png") no-repeat 3px center;
+}

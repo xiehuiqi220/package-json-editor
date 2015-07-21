@@ -1,0 +1,19 @@
+{
+  "name": "package-json-editor",
+  "version": "0.0.1",
+  "homepage": "https://github.com/xiehuiqi220/package-json-editor",
+  "authors": [
+    "伐薪 <huiqi.xhq@alibaba-inc.com>"
+  ],
+  "description": "an online package.json editor",
+  "main": "main.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
