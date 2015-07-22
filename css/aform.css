@@ -1,3 +1,7 @@
+.aform.horizontal .form-control {
+    display: inline;
+    width: auto;
+}
 .aform td .form-group {
     margin-bottom: 0;
 }
@@ -12,11 +16,18 @@
 }
 /*展开的状态*/
 .aform label.json-form-ctrl-un-collapse{
-    padding-left: 20px;
-    background: url("../bower_components/aform/img/arrow_collapsed.png") no-repeat left center;
+    padding-right: 20px;
+    background: url("../bower_components/aform/img/arrow_collapsed.png") no-repeat right center;
 }
 /*折叠的状态*/
 .aform label.json-form-ctrl-collapse{
-    padding-left: 20px;
-    background: url("../bower_components/aform/img/arrow_expanded.png") no-repeat 3px center;
+    padding-right: 20px;
+    background: url("../bower_components/aform/img/arrow_expanded.png") no-repeat right center;
+}
+.aform table caption label.json-form-collapser {
+    font-size: 14px;
+    color: #333;
+}
+.aform fieldset legend label {
+    font-size: 14px;
 }

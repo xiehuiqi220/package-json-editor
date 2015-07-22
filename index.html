@@ -17,38 +17,75 @@
 <div class="main">
     <div id="textAreaWrap" style="flex: 1">
         <textarea class="form-control" id="txtCodeArea">{
-            name: "@ali/base-fmd-maker",
-            version: "1.1.2",
-            description: "将 commonjs 的代码模块编译成 fmd 形式。",
-            main: "./index.js",
-            repository: {
-            type: "git",
-            url: "git@gitlab.alibaba-inc.com:neat/base-fmd-maker.git"
-            },
-            publishConfig: {
-            registry: "http://registry.npm.alibaba-inc.com"
-            },
-            keywords: [
-            "1688",
-            "commonjs compiler"
-            ],
-            author: {
-            name: "lihao.ylh",
-            email: "lihao.ylh@alibaba-inc.com"
-            },
-            license: "ISC",
-            dependencies: {
-            "@ali/commonjs-compiler": "~0.2.0",
-            "@ali/neat-utils": "~2.1.0",
-            "fs-extra": "~0.18.3",
-            "iconv-lite": "~0.4.4",
-            minimatch: "~2.0.4"
-            },
-            scripts: {
-            test: "mocha tests/**/*.js"
-            }
-            }
-        </textarea>
+  "name": "bootstrap",
+  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "version": "3.3.5",
+  "keywords": [
+    "css",
+    "less",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "http://getbootstrap.com",
+  "author": "Twitter, Inc.",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "style": "dist/css/bootstrap.css",
+  "less": "less/bootstrap.less",
+  "main": "./dist/js/npm",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/twbs/bootstrap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/twbs/bootstrap/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "btoa": "~1.1.2",
+    "glob": "~5.0.12",
+    "grunt": "~0.4.5",
+    "grunt-autoprefixer": "~3.0.3",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-jscs": "~1.8.0",
+    "grunt-saucelabs": "~8.6.1",
+    "grunt-sed": "twbs/grunt-sed#v0.2.0",
+    "load-grunt-tasks": "~3.2.0",
+    "markdown-it": "^4.3.0",
+    "npm-shrinkwrap": "^200.4.0",
+    "time-grunt": "^1.2.1"
+  },
+  "engines": {
+    "node": ">=0.10.1"
+  },
+  "files": [
+    "dist",
+    "fonts",
+    "grunt",
+    "js/*.js",
+    "less/**/*.less",
+    "Gruntfile.js",
+    "LICENSE"
+  ],
+  "jspm": {
+    "main": "js/bootstrap",
+    "shim": {
+      "js/bootstrap": {
+        "deps": "jquery",
+        "exports": "$"
+      }
+    },
+    "files": [
+      "css",
+      "fonts",
+      "js"
+    ]
+  }
+}</textarea>
         <div id="aceEditor"></div>
     </div>
     <div id="splitter">
@@ -65,74 +102,4 @@
 <script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/aform/aform.js"></script>
 <script src="bower_components/ace/build/src/ace.js"></script>
-<script>
-    AForm.Config.extClassName.basicContainer = "form-group";
-    AForm.Config.extClassName.table = "table table-bordered";
-    AForm.Config.extClassName.control = "form-control";
-    AForm.Config.wording.addRowText = "add";
-
-    var txtCodeArea = $("#txtCodeArea");
-    var editor;
-    var af = new AForm("form", {
-        fields : {
-            description : {type:"textarea"}
-        }
-    });
-
-    function format(){
-        var str = editor.getValue();
-        try {
-            var json = eval("(" + str + ")");
-        } catch (ex) {
-
-        }
-        str = JSON.stringify(json,null,"\t");
-        editor.session.setValue(str);
-    }
-
-    function renderForm() {
-        var str = editor.getValue();
-        try {
-            var json = eval("(" + str + ")");
-        } catch (ex) {
-            alert("invalid package.json");
-            return false;
-        }
-
-        af.render(json);
-        format();
-    }
-
-    function initAce(){
-        txtCodeArea.hide();
-        editor = ace.edit("aceEditor");
-        editor.setTheme("ace/theme/ecllipse");
-        editor.setFontSize(14);
-        editor.getSession().setMode("ace/mode/json");
-        editor.getSession().setValue(txtCodeArea.val());
-        editor.getSession().on('change', function(){
-            txtCodeArea.val(editor.getSession().getValue());
-        });
-    }
-
-    function getJson() {
-        var str = af.getJsonString();
-        editor.setValue(str);
-        format();
-    }
-
-    function initBehavior() {
-        $("#btnRender").click(function() {
-            renderForm();
-        });
-        $("#btnGetJson").click(function() {
-            getJson();
-        });
-    }
-
-    $(function(){
-        initBehavior();
-        initAce();
-        $("#btnRender").click();
-    })
-</script>
+<script src="js/main.js"></script>
