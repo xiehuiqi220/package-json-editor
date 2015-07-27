@@ -31,3 +31,22 @@
 .aform fieldset legend label {
     font-size: 14px;
 }
+.aform .json-form-element {
+    position: relative;
+}
+.aform .json-form-element .section-toolbar {
+    position: absolute;
+    right: 0px;
+    top:3px;
+}
+.aform .json-form-element .section-toolbar a {
+    color:#e8e8e8;
+    padding-left: 5px;
+}
+.aform .json-form-element .section-toolbar a:hover {
+    color:#333333;
+}
+
+.aform a:hover {
+    text-decoration: none;
+}

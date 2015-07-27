@@ -1,3 +1,4 @@
+(function(){
     AForm.Config.extClassName.basicContainer = "form-group";
     AForm.Config.extClassName.table = "table table-bordered";
     AForm.Config.extClassName.control = "form-control";
@@ -31,6 +32,19 @@
             return false;
         }
 
+        af.on("renderComplete",function(){
+            $(".aform > fieldset  > .json-form-fdset > .json-form-element").each(function(){
+                var name =  $(this).attr("name") || $(this).attr("jpath").substr(1);
+                name = name.toLowerCase();
+                var helpTitle = "goto the help page of ["+name+"]";
+                var removeTitle = "remove setion ["+name+"]";
+                var href = 'https://docs.npmjs.com/files/package.json#'+name;
+                $(this).append('<div class="section-toolbar">' +
+                    '<a title="'+removeTitle+'" class="remove-section glyphicon glyphicon-remove-circle" href="#nolink"></a>' +
+                    '<a title="'+helpTitle+'" class="link-to-help glyphicon glyphicon-question-sign" target="_blank" href="'+(href)+'"></a>' +
+                    '</div>');
+            });
+        });
         af.render(json);
         format();
     }
@@ -60,6 +74,14 @@
         $("#btnGetJson").click(function() {
             getJson();
         });
+        $("#btnCreate").click(function(){
+
+        });
+        $("body").on("click",".remove-section",function(){
+            $(this).closest(".json-form-element").fadeOut(function(){
+                $(this).remove();
+            });
+        });
     }
 
     $(function(){
@@ -67,3 +89,4 @@
         initAce();
         $("#btnRender").click();
     })
+})();

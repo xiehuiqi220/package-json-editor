@@ -1,0 +1,27 @@
+{
+	"name": "",
+	"version": "",
+	"author": "",
+	"license": "",
+	"description": "",
+	"keywords": [""],
+	"main": "",
+	"repository": {
+		"type": "git",
+		"url": "https://"
+	},
+	"bugs": "https://",
+	"homepage": "https://",
+	"scripts": {
+		"test": "grunt ci",
+		"dev": ""
+	},
+	"dependencies": {
+		"envify": "^3.4.0"
+	},
+	"devDependencies": {
+		"shell-task": "^1.0.0",
+		"uglify-js": "^2.4.20",
+		"webpack": "^1.9.10"
+	}
+}

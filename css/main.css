@@ -33,6 +33,7 @@ header a,header a:hover,header a:visited,header a:active {
 #form {
     flex: 1;
     padding: 5px;
+    padding-right: 15px;
     overflow-y: scroll;
 }
 
